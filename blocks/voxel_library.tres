@@ -1,0 +1,124 @@
+[gd_resource type="VoxelLibrary" load_steps=17 format=2]
+
+[ext_resource path="res://blocks/tall_grass/tall_grass.obj" type="ArrayMesh" id=1]
+[ext_resource path="res://blocks/tall_grass/tall.obj" type="ArrayMesh" id=2]
+[ext_resource path="res://blocks/water/water_top.obj" type="ArrayMesh" id=3]
+[ext_resource path="res://blocks/water/water_full.obj" type="ArrayMesh" id=4]
+[ext_resource path="res://blocks/dead_shrub/dead_shrub.obj" type="ArrayMesh" id=5]
+
+[sub_resource type="Voxel" id=1]
+voxel_name = "ai"
+
+[sub_resource type="Voxel" id=2]
+voxel_name = "wate"
+transparent = true
+transparency_index = 1
+material_id = 1
+geometry_type = 2
+custom_mesh = ExtResource( 3 )
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+collision_mask = 2
+
+[sub_resource type="Voxel" id=11]
+voxel_name = "leaf"
+material_id = 2
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+collision_mask = 2
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 2 )
+cube_tiles/right = Vector2( 0, 2 )
+cube_tiles/bottom = Vector2( 0, 2 )
+cube_tiles/top = Vector2( 0, 2 )
+cube_tiles/back = Vector2( 0, 2 )
+cube_tiles/front = Vector2( 0, 2 )
+
+[sub_resource type="Voxel" id=3]
+voxel_name = "wate"
+transparent = true
+transparency_index = 1
+material_id = 1
+geometry_type = 2
+custom_mesh = ExtResource( 4 )
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+collision_mask = 2
+
+[sub_resource type="Voxel" id=4]
+voxel_name = "tall"
+material_id = 3
+geometry_type = 2
+custom_mesh = ExtResource( 2 )
+
+[sub_resource type="Voxel" id=5]
+voxel_name = "tall2"
+material_id = 2
+geometry_type = 2
+custom_mesh = ExtResource( 1 )
+
+[sub_resource type="Voxel" id=6]
+voxel_name = "shub"
+material_id = 2
+geometry_type = 2
+custom_mesh = ExtResource( 5 )
+
+[sub_resource type="Voxel" id=7]
+voxel_name = "dit"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 1, 0 )
+cube_tiles/right = Vector2( 1, 0 )
+cube_tiles/bottom = Vector2( 1, 0 )
+cube_tiles/top = Vector2( 1, 0 )
+cube_tiles/back = Vector2( 1, 0 )
+cube_tiles/front = Vector2( 1, 0 )
+
+[sub_resource type="Voxel" id=8]
+voxel_name = "gass"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 0, 1 )
+cube_tiles/right = Vector2( 0, 1 )
+cube_tiles/bottom = Vector2( 1, 0 )
+cube_tiles/top = Vector2( 0, 0 )
+cube_tiles/back = Vector2( 0, 1 )
+cube_tiles/front = Vector2( 0, 1 )
+
+[sub_resource type="Voxel" id=9]
+voxel_name = "stone"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 2, 1 )
+cube_tiles/right = Vector2( 2, 1 )
+cube_tiles/bottom = Vector2( 2, 1 )
+cube_tiles/top = Vector2( 2, 1 )
+cube_tiles/back = Vector2( 2, 1 )
+cube_tiles/front = Vector2( 2, 1 )
+
+[sub_resource type="Voxel" id=10]
+voxel_name = "log"
+geometry_type = 1
+collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
+collision_mask = 2
+cube_geometry/padding_y = null
+cube_tiles/left = Vector2( 2, 0 )
+cube_tiles/right = Vector2( 2, 0 )
+cube_tiles/bottom = Vector2( 3, 0 )
+cube_tiles/top = Vector2( 3, 0 )
+cube_tiles/back = Vector2( 2, 0 )
+cube_tiles/front = Vector2( 2, 0 )
+
+[resource]
+voxels/0 = SubResource( 1 )
+voxels/1 = SubResource( 2 )
+voxels/2 = SubResource( 3 )
+voxels/3 = SubResource( 4 )
+voxels/4 = SubResource( 5 )
+voxels/5 = SubResource( 6 )
+voxels/6 = SubResource( 7 )
+voxels/7 = SubResource( 8 )
+voxels/8 = SubResource( 9 )
+voxels/9 = SubResource( 10 )
+voxels/10 = SubResource( 11 )

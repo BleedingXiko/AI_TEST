@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/rail_slope_px.obj-2c5f1c3e44fa484a73321d4030fb8c0c.mesh"
+
+[deps]
+
+files=[ "res://.import/rail_slope_px.obj-2c5f1c3e44fa484a73321d4030fb8c0c.mesh" ]
+
+source_file="res://blocks/rail/rail_slope_px.obj"
+dest_files=[ "res://.import/rail_slope_px.obj-2c5f1c3e44fa484a73321d4030fb8c0c.mesh", "res://.import/rail_slope_px.obj-2c5f1c3e44fa484a73321d4030fb8c0c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

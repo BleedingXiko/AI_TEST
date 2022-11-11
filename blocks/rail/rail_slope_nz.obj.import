@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/rail_slope_nz.obj-c40ad72eb6f1153d1aae14d3fa64044c.mesh"
+
+[deps]
+
+files=[ "res://.import/rail_slope_nz.obj-c40ad72eb6f1153d1aae14d3fa64044c.mesh" ]
+
+source_file="res://blocks/rail/rail_slope_nz.obj"
+dest_files=[ "res://.import/rail_slope_nz.obj-c40ad72eb6f1153d1aae14d3fa64044c.mesh", "res://.import/rail_slope_nz.obj-c40ad72eb6f1153d1aae14d3fa64044c.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286

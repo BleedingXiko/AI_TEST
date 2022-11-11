@@ -1,0 +1,71 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://player/character_controller.gd" type="Script" id=1]
+[ext_resource path="res://player/avatar_camera.gd" type="Script" id=2]
+
+[sub_resource type="PlaneMesh" id=2]
+
+[sub_resource type="Shader" id=3]
+code = "shader_type spatial;
+render_mode unshaded;
+
+uniform vec4 tint : hint_color; // tint effect
+uniform float wave_speed = 3.0; // wave loop speed
+uniform float wave_freq = 10.0; // wave vertical freq
+uniform float wave_width = 1; // wave width 
+
+void fragment(){
+	vec2 scale_UV = SCREEN_UV;
+	vec2 wave_uv_offset;
+	wave_uv_offset.x = cos((TIME*wave_speed)+UV.x+UV.y*wave_freq*2.0)*wave_width*0.01;
+	ALBEDO = texture(SCREEN_TEXTURE, SCREEN_UV+wave_uv_offset).rgb*tint.rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
+shader_param/tint = Color( 0.6, 0.792157, 0.835294, 0.439216 )
+shader_param/wave_speed = 3.0
+shader_param/wave_freq = 10.0
+shader_param/wave_width = 1.0
+
+[sub_resource type="CubeMesh" id=1]
+size = Vector3( 0.8, 1.8, 0.8 )
+
+[node name="CharacterAvatar" type="Spatial"]
+script = ExtResource( 1 )
+speed = 6.0
+gravity = 40.0
+jump_force = 10.0
+head = NodePath("Camera")
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.702764, 0 )
+current = true
+fov = 90.0
+near = 0.1
+far = 8192.0
+script = ExtResource( 2 )
+sensitivity = 0.3
+
+[node name="wate" type="MeshInstance" parent="Camera"]
+transform = Transform( 3, 0, 0, 0, 0.0282217, -2.99987, 0, 2.99987, 0.0282217, 0, 0.003236, -0.623 )
+visible = false
+mesh = SubResource( 2 )
+skeleton = NodePath("../..")
+material/0 = SubResource( 4 )
+
+[node name="crosshair" type="Sprite" parent="."]
+visible = false
+position = Vector2( 510.693, 285.793 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+
+[node name="VoxelViewer" type="VoxelViewer" parent="."]
+requires_collisions = false
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.25
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -1,0 +1,33 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://generator/gen.gd" type="Script" id=1]
+[ext_resource path="res://blocks/mesher.tres" type="VoxelMesherBlocky" id=2]
+[ext_resource path="res://player/character_avatar.tscn" type="PackedScene" id=3]
+[ext_resource path="res://blocks/terrain_material_foliage.tres" type="Material" id=4]
+[ext_resource path="res://blocks/terrain_material.tres" type="Material" id=5]
+[ext_resource path="res://blocks/terrain_material_transparent.tres" type="Material" id=6]
+[ext_resource path="res://blocks/texture_atlas.png" type="Texture" id=7]
+
+[sub_resource type="VoxelGeneratorScript" id=1]
+script = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+params_cull_mode = 2
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+albedo_texture = ExtResource( 7 )
+
+[node name="Spatial" type="Spatial"]
+
+[node name="VoxelTerrain" type="VoxelTerrain" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.2226, 0 )
+generator = SubResource( 1 )
+mesher = ExtResource( 2 )
+generate_collisions = false
+material/0 = ExtResource( 5 )
+material/1 = ExtResource( 6 )
+material/2 = ExtResource( 4 )
+material/3 = SubResource( 2 )
+
+[node name="CharacterAvatar" parent="." instance=ExtResource( 3 )]
+terrain_path = NodePath("../VoxelTerrain")
