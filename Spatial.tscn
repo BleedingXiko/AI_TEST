@@ -20,7 +20,6 @@ albedo_texture = ExtResource( 7 )
 [node name="Spatial" type="Spatial"]
 
 [node name="VoxelTerrain" type="VoxelTerrain" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -28.2226, 0 )
 generator = SubResource( 1 )
 mesher = ExtResource( 2 )
 generate_collisions = false
@@ -30,4 +29,5 @@ material/2 = ExtResource( 4 )
 material/3 = SubResource( 2 )
 
 [node name="CharacterAvatar" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 22.1919, 0 )
 terrain_path = NodePath("../VoxelTerrain")

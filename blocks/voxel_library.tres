@@ -24,7 +24,7 @@ voxel_name = "leaf"
 material_id = 2
 geometry_type = 1
 collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
-collision_mask = 2
+collision_mask = 4
 cube_geometry/padding_y = null
 cube_tiles/left = Vector2( 0, 2 )
 cube_tiles/right = Vector2( 0, 2 )
@@ -48,18 +48,21 @@ voxel_name = "tall"
 material_id = 3
 geometry_type = 2
 custom_mesh = ExtResource( 2 )
+collision_mask = 2
 
 [sub_resource type="Voxel" id=5]
 voxel_name = "tall2"
 material_id = 2
 geometry_type = 2
 custom_mesh = ExtResource( 1 )
+collision_mask = 2
 
 [sub_resource type="Voxel" id=6]
 voxel_name = "shub"
 material_id = 2
 geometry_type = 2
 custom_mesh = ExtResource( 5 )
+collision_mask = 2
 
 [sub_resource type="Voxel" id=7]
 voxel_name = "dit"
@@ -101,7 +104,7 @@ cube_tiles/front = Vector2( 2, 1 )
 voxel_name = "log"
 geometry_type = 1
 collision_aabbs = [ AABB( 0, 0, 0, 1, 1, 1 ) ]
-collision_mask = 2
+collision_mask = 4
 cube_geometry/padding_y = null
 cube_tiles/left = Vector2( 2, 0 )
 cube_tiles/right = Vector2( 2, 0 )

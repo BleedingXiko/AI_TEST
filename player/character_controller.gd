@@ -19,7 +19,7 @@ var _terrain_tool = null
 
 
 func _ready():
-	_box_mover.set_collision_mask(1) # Excludes rails
+	_box_mover.set_collision_mask(1 | 4) # Excludes water
 	_head = get_node(head)
 	_terrain = get_node(terrain_path)
 	_terrain_tool = _terrain.get_voxel_tool()
@@ -53,9 +53,11 @@ func _physics_process(delta):
 	var motion = _velocity * delta
 	
 	if has_node(terrain_path):
+		#defines the collsion of the player
 		var aabb = AABB(Vector3(-0.4, -0.9, -0.4), Vector3(0.8, 1.8, 0.8))
 		var terrain_node = get_node(terrain_path)
 		var prev_motion = motion
+		#get_motion() is similar to kinematicbody move_and_slide()
 		motion = _box_mover.get_motion(translation, motion, aabb, terrain_node)
 		if abs(motion.y) < 0.001 and prev_motion.y < -0.001:
 			_grounded = true
@@ -69,6 +71,7 @@ func _physics_process(delta):
 	_velocity = motion / delta
 
 
+# raycast from origin with direction forward ctr click for docs (only for some)
 func _get_pointed_voxel():
 	var origin = get_global_transform().origin
 	var forward = -get_transform().basis.y.normalized()
@@ -80,6 +83,7 @@ func _on_Timer_timeout():
 	var hit = _get_pointed_voxel()
 	var pos = null
 	if hit:
+		# gets the global position of that voxel so you can do ai.global_translation = hit.position
 		pos = hit.position
 		print(pos)
 		#print(_terrain_tool.get_voxel(pos))
@@ -90,11 +94,6 @@ func _on_Timer_timeout():
 			speed = 4
 			jump_force = 3
 			_grounded = true
-#		if _terrain_tool.get_voxel(pos):
-#			$Camera/wate.hide()
-#			gravity = 40
-#			speed = 6
-#			jump_force = 10
 		else:
 			gravity = 40
 			speed = 6
